@@ -4,6 +4,7 @@
 
 <h1>Page Index</h1>
 
+<!-- para execurta o js, tem que mudar a tag para !! $xss !! dentro das chaves
 {{$xss}}
 
 @if($var1 == '1234')
@@ -14,6 +15,7 @@
 
 {{-- if de forma negative --}}
 
+// se quiser sabaer se e falso
 @unless($var1 == '1234')
 <p>não é igual ... unless</p>
 @endunless
@@ -44,7 +46,7 @@
 
 @endsection
 
-<!-- depois de ter feito a chamada no template, acrescenta arquivos referentes a esta pagina-->
+{{-- depois de ter feito a chamada no template, acrescenta arquivos referentes a esta pagina --}}
 @push("scripts")
 
 <!-- Latest compiled and minified CSS -->

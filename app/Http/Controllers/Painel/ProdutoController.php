@@ -8,14 +8,23 @@ use App\Models\Painel\Product;
 
 class ProdutoController extends Controller
 {
+
+    private $product;
+
+    public function __construct(Product $product){
+
+        $this->product = $product;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Product $product)
+    public function index()
     {
-        $products = $product->all();
+        $products = $this->product->all();
         return view("painel.products.index", compact("products"));
     }
 
@@ -84,4 +93,40 @@ class ProdutoController extends Controller
     {
         //
     }
+
+
+    public function tests(){
+
+        /* uma das formas de cadastro
+        $prod = $this->product;
+        $prod->name = "Nome do produto";
+        $prod->number = 131231;
+        $prod->active = true;
+        $prod->category = "eletronicos";
+        $prod->description = "Description do produto aqui";
+        $insert = $prod->save();
+
+        if($insert){
+            return "Inserido com sucesso";
+        }else{
+            return "Falha ao inserir";
+        }*/
+
+        $insert = $this->product->create([
+                "name"          => "Nome do produto 2",
+                "number"        => 414141,
+                "active"        => true,
+                "category"      => "eletronicos",
+                "description"   => "teste teste"
+        ]);
+
+        if($insert){
+            return "Inserido com sucesso, id: {$insert->id} ";
+        }else{
+            return "Falha ao inserir";
+        }
+
+        
+    }
+
 }
