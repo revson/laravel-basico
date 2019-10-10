@@ -112,7 +112,7 @@ class ProdutoController extends Controller
             return "Falha ao inserir";
         }*/
 
-        $insert = $this->product->create([
+        /*$insert = $this->product->create([
                 "name"          => "Nome do produto 2",
                 "number"        => 414141,
                 "active"        => true,
@@ -124,7 +124,50 @@ class ProdutoController extends Controller
             return "Inserido com sucesso, id: {$insert->id} ";
         }else{
             return "Falha ao inserir";
+        }*/
+        
+        /*$prod = $this->product->find(5);
+        $prod->name = "Update";
+        $prod->number = 79798;
+        $prod->active = true;
+        $prod->category = "eletronicos";
+        $prod->description = "Desc Update";
+        $update = $prod->save();
+        
+        if($update){
+            return "Alterado com sucesso";
+        }else{
+            return "Falha ao alterar";
+        }*/
+        
+        /*$prod = $this->product->find(6);
+        $update = $prod->update([
+                "name"          => "Update Test",
+                "number"        => 65656565,
+                "active"        => true
+                
+        ]);
+        
+        if($update){
+            return "Alterado com sucesso";
+        }else{
+            return "Falha ao alterar";
+        }*/
+        
+        $prod = $this->product->where("number", "65656565");
+        $update = $prod->update([
+                "name"          => "Update Test 2",
+                "number"        => 656565650,
+                "active"        => false
+                
+        ]);
+        
+        if($update){
+            return "Alterado com sucesso2";
+        }else{
+            return "Falha ao alterar";
         }
+        
 
         
     }
